@@ -23,5 +23,11 @@ abstract class Karyawan {
     // 3. Metode Abstract (Tanpa isi/body) yang wajib diimplementasikan oleh kelas anak
     abstract public function hitungGajiBersih();
     abstract public function tampilkanProfilKaryawan();
+    // Tambahkan ini di dalam class Karyawan di file koneksi.php
+    public function getIdKaryawan() { return $this->id_karyawan; }
+    public function getNamaKaryawan() { return $this->nama_karyawan; }
+    public function getDepartemen() { return $this->departemen; }
+    public function getHariKerjaMasuk() { return $this->hariKerjaMasuk; }
+    public function getGajiDasarPerhari() { return $this->gajiDasarPerhari; }
 }
 ?>

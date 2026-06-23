@@ -3,25 +3,20 @@
 require_once 'koneksi.php';
 
 class KaryawanMagang extends Karyawan {
-    // Properti tambahan spesifik untuk Karyawan Magang
     private $uangSakuBulanan;
     private $sertifikatKampusMerdeka;
 
-    // Konstruktor kelas anak
     public function __construct($id_karyawan, $nama_karyawan, $departemen, $hariKerjaMasuk, $gajiDasarPerhari, $uangSakuBulanan, $sertifikatKampusMerdeka) {
-        // Memanggil konstruktor dari parent class (Karyawan)
         parent::__construct($id_karyawan, $nama_karyawan, $departemen, $hariKerjaMasuk, $gajiDasarPerhari);
         $this->uangSakuBulanan = $uangSakuBulanan;
         $this->sertifikatKampusMerdeka = $sertifikatKampusMerdeka;
     }
 
-    // Mengimplementasikan metode abstrak hitungGajiBersih
+    // TAHAP 5: Method Overriding untuk Karyawan Magang
     public function hitungGajiBersih() {
-        // Magang biasanya akumulasi uang saku bulanan + upah harian kerja
-        return ($this->hariKerjaMasuk * $this->gajiDasarPerhari) + $this->uangSakuBulanan;
+        return ($this->hariKerjaMasuk * $this->gajiDasarPerhari) * 0.80;
     }
 
-    // Mengimplementasikan metode abstrak tampilkanProfilKaryawan
     public function tampilkanProfilKaryawan() {
         echo "ID Karyawan : " . $this->id_karyawan . "<br>";
         echo "Nama        : " . $this->nama_karyawan . "<br>";
